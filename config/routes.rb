@@ -1,7 +1,9 @@
 Processes::Application.routes.draw do
 
-  resources :processes, :only => [:index, :show] do
-    get :list, :on => :collection
+  scope "/api" do
+    resources :processes, :only => [:index, :show] do
+      get :list, :on => :collection
+    end
   end
 
   # The priority is based upon order of creation:
