@@ -9,18 +9,21 @@ class ProcessesController < ApplicationController
   # @param [id] process_id
   def show
     pid = params[:id]
-    process_details = `ps -o "pid pcpu pmem time comm" | grep #{pid}`
+    fields = "pid pcpu pmem time comm"
+    process_details = `ps -o "#{fields}" | grep #{pid}`
     if process_details.blank?
       render :json => {status: :error, reason: 'No such process running at present!'}
     else
-      render :json => hashify(process_details, [:pid, :pcpu, :pmem, :time, :comm])
+      render :json => hashify(process_details, fields)
     end
   end
 
   private
 
-  def hashify(value_string, keys=[])
+  def hashify(value_string, field_string)
     values = value_string.strip.split(" ")
-    Hash[keys.zip(values)]
+    fields = field_string.strip.split(" ")
+    Hash[fields.zip(values)]
   end
+
 end
