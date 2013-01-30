@@ -15,6 +15,7 @@ group :development do
   gem "simplecov-rcov"
   gem "rdiscount"
   gem "rspec-rails", "~> 2.6"
+  gem 'yard'
 
   gem "pry"
   gem "pry-debugger"
