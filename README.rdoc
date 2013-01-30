@@ -13,4 +13,4 @@ Start up stuff:
 3) rails s to get the app up and working.
 
 
-
+yard server --reload to have a view on the documentation made.

@@ -6,6 +6,7 @@ class ProcessesController < ApplicationController
   end
 
   # Provides details on the process id supplied as the parameter
+  # @param [id] process_id
   def show
     pid = params[:id]
     process_details = `ps -o "pid pcpu pmem time comm" | grep #{pid}`
