@@ -1,0 +1,15 @@
+/vendor/bundle
+.bundle/
+/coverage
+/spec/reports
+*.log
+*.gem
+/log/*.log
+/tmp
+*~
+.idea/
+config/database.yml
+log/
+.sass-cache/
+public/assets/
+config/application.yml
